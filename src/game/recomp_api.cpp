@@ -3,7 +3,7 @@
 #include "recomp.h"
 #include "librecomp/overlays.hpp"
 #include "librecomp/addresses.hpp"
-#include "mygame_config.h"
+#include "mischiefmakers_config.h"
 #include "recompinput/recompinput.h"
 #include "recompui/recompui.h"
 #include "recompui/renderer.h"
@@ -189,3 +189,10 @@ extern "C" void recomp_xxh3(uint8_t* rdram, recomp_context* ctx) {
     ctx->r3 = (int32_t)(ret >> 0);
 }
 
+extern "C" void rmonPrintf_recomp(uint8_t* rdram, recomp_context* ctx) {
+    ctx->r2 = 0;
+}
+
+extern "C" void __osGetCause_recomp(uint8_t* rdram, recomp_context* ctx) {
+    ctx->r2 = 0;
+}

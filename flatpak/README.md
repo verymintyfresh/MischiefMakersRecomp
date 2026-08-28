@@ -5,11 +5,11 @@ make -C patches CC=clang LD=ld.lld
 
 Build
 ```sh
-flatpak-builder --force-clean --user --install-deps-from=flathub --repo=repo --install builddir io.github.n64gamerecomp.n64gamerecomp.json
+flatpak-builder --force-clean --user --install-deps-from=flathub --repo=repo --install builddir io.github.verymintyfresh.mischiefmakersrecompiled.json
 ```
 
 Bundle
 ```sh
-flatpak build-bundle repo io.github.n64gamerecomp.n64gamerecomp.flatpak io.github.n64gamerecomp.n64gamerecomp --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
+flatpak build-bundle repo io.github.verymintyfresh.mischiefmakersrecompiled.flatpak io.github.verymintyfresh.mischiefmakersrecompiled --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
 ```
 

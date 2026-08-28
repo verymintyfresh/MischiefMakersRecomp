@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Mischief Makers: Recompiled
+Type=Application
+Terminal=false
+Exec=MischiefMakersRecompiled
+Categories=Game;
+Comment=Static recompilation of Mischief Makers for PC.
+

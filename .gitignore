@@ -25,6 +25,10 @@ repo/
 *.lib
 *.pdb
 
+# Data dumps
+data_dump.toml
+dump.toml
+
 # Nix build output
 /result/
 

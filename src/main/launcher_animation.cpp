@@ -1,7 +1,7 @@
-#include "mygame_launcher.h"
+#include "mischiefmakers_launcher.h"
 #include <atomic>
 
-void mygame::launcher_animation_setup(recompui::LauncherMenu *menu) {
+void mischiefmakers::launcher_animation_setup(recompui::LauncherMenu *menu) {
     auto context = recompui::get_current_context();
     recompui::Element *background_container = menu->get_background_container();
     background_container->set_background_color({ 0x00, 0x00, 0x00, 0xFF });
@@ -9,5 +9,5 @@ void mygame::launcher_animation_setup(recompui::LauncherMenu *menu) {
     (void)context;
 }
 
-void mygame::launcher_animation_update(recompui::LauncherMenu *menu) {
+void mischiefmakers::launcher_animation_update(recompui::LauncherMenu *menu) {
 }

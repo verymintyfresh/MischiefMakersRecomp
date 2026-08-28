@@ -7,3 +7,6 @@
 [submodule "lib/RecompFrontend"]
 	path = lib/RecompFrontend
 	url = https://github.com/N64Recomp/RecompFrontend
+[submodule "lib/mischief-makers"]
+	path = lib/mischief-makers
+	url = https://github.com/Drahsid/mischief-makers

@@ -1,23 +1,25 @@
-# Config file for My Game [MyGameVersion] Recompilation.
+# Config file for Mischief Makers [MischiefMakersVersion] Recompilation.
 
 [input]
 # User Task: Set the game entry point
-entrypoint = 0x00000000
+entrypoint = 0x80000400
 
 # Paths are relative to the location of this config file.
 output_func_path = "RecompiledFuncs"
 
 # Used after symbols are dumped. Elf is used until symbols are dumped and rom is usable
-# rom_file_path = "mygame.ver.z64"
+#rom_file_path = "mischiefmakers.z64"
 
 # Used after symbols are dumped. Elf file is required to get started
-# symbols_file_path = "MyGameRecompSyms/mygame.ver.syms.toml"
+#symbols_file_path = "MischiefMakersRecompSyms/dump.toml"
 
 # Enabled until the context is dumped with "--dump-context" and the recompiler is pointed to the symbols
-elf_path = "mygame.ver.elf"
+elf_path = "mischiefmakers.elf"
+
+relocatable_sections_path = "overlays.txt"
 
 # Enable only when debugging recompilation issues.
-# trace_mode = true
+#trace_mode = true
 
 # Treat sections ending in "_bss" as zero-initialized BSS RAM.
 bss_section_suffix = "_bss"
@@ -26,7 +28,10 @@ manual_funcs = []
 
 [patches]
 
-ignored = []
+ignored = [
+    "aspMainTextStart",
+    "gspFast3DTextStart",
+]
 
 renamed = []
 
@@ -44,8 +49,14 @@ stubs = []
 # VRAM location is found in the recompiled functions.
 # before_vram = 0x80000000
 
-# Yield in spinning wait.
 [[patches.hook]]
+func = "rmonMain_recomp"
+text = "printf('TEST');"
+#text = "load_overlay_by_id(0, 0x80000000)"
+before_vram = 0x8009A2B8
+
+# Yield in spinning wait.
+#[[patches.hook]]
 # func = "func_name"
 # text = "yield_self(rdram);"
 # before_vram = 0x80000000

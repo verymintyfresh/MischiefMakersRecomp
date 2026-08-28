@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=My Game: Recompiled
-Exec=/app/bin/MyGameRecompiled
-Type=Application
-Icon=io.github.n64gamerecomp.n64gamerecomp
-Categories=Game;
-Comment=Static recompilation of My Game for PC.
-MimeType=x-scheme-handler/n64gamerecomp

@@ -1,0 +1,4 @@
+#ifndef __MISCHIEFMAKERS_DEBUG_H__
+#define __MISCHIEFMAKERS_DEBUG_H__
+
+#endif

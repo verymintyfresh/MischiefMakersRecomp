@@ -10,10 +10,10 @@ if (CMAKE_GENERATOR STREQUAL "Xcode")
 endif()
 
 # Use generator expressions to get the absolute path to the bundle
-set(APPS "${BUILD_PREFIX}MyGameRecompiled.app/Contents/MacOS/MyGameRecompiled")
+set(APPS "${BUILD_PREFIX}MischiefMakersRecompiled.app/Contents/MacOS/MischiefMakersRecompiled")
 
 # Set up framework search paths
-set(DIRS "${BUILD_PREFIX}MyGameRecompiled.app/Contents/Frameworks")
+set(DIRS "${BUILD_PREFIX}MischiefMakersRecompiled.app/Contents/Frameworks")
 
 # Detect if we're using pkgx
 if(PKGX_EXECUTABLE)

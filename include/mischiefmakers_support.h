@@ -1,5 +1,5 @@
-#ifndef __MYGAME_SUPPORT_H__
-#define __MYGAME_SUPPORT_H__
+#ifndef __MISCHIEFMAKERS_SUPPORT_H__
+#define __MISCHIEFMAKERS_SUPPORT_H__
 
 #include <functional>
 #include <filesystem>
@@ -7,7 +7,7 @@
 #include <optional>
 #include <list>
 
-namespace mygame {
+namespace mischiefmakers {
     std::filesystem::path get_program_path();
     std::filesystem::path get_asset_path(const char* asset);
     void open_file_dialog(std::function<void(bool success, const std::filesystem::path& path)> callback);

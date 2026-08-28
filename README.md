@@ -1,6 +1,6 @@
 # N64 Recomp Game Template
 
-This repository uses generic `My Game`, `MyGame`, and `mygame` placeholders so it
+This repository uses generic `Mischief Makers`, `MischiefMakers`, and `mischiefmakers` placeholders so it
 can be configured for another game.
 
 Configure your game with:

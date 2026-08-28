@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Mischief Makers: Recompiled
+Exec=/app/bin/MischiefMakersRecompiled
+Type=Application
+Icon=io.github.verymintyfresh.mischiefmakersrecompiled
+Categories=Game;
+Comment=Static recompilation of Mischief Makers for PC.
+MimeType=x-scheme-handler/mischiefmakers

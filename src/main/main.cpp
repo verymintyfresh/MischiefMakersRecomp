@@ -36,10 +36,10 @@
 #include "recompinput/input_events.h"
 #include "recompinput/recompinput.h"
 #include "recompinput/profiles.h"
-#include "mygame_config.h"
-#include "mygame_support.h"
-#include "mygame_game.h"
-#include "mygame_launcher.h"
+#include "mischiefmakers_config.h"
+#include "mischiefmakers_support.h"
+#include "mischiefmakers_game.h"
+#include "mischiefmakers_launcher.h"
 #include "recomp_data.h"
 #include "ovl_patches.hpp"
 #include "theme.h"
@@ -163,7 +163,7 @@ ultramodern::renderer::WindowHandle create_window(ultramodern::gfx_callbacks_t::
     flags |= SDL_WINDOW_VULKAN;
 #endif
 
-    window = SDL_CreateWindow("My Game: Recompiled", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1600, 900,  flags);
+    window = SDL_CreateWindow("Mischief Makers: Recompiled", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1600, 900,  flags);
 
     if (window == nullptr) {
         exit_error("Failed to create window: %s\n", SDL_GetError());
@@ -347,12 +347,12 @@ bool reset_audio(uint32_t output_freq) {
     return true;
 }
 
-extern RspUcodeFunc n_aspMain;
+extern RspUcodeFunc aspMain;
 
 RspUcodeFunc* get_rsp_microcode(const OSTask* task) {
     switch (task->t.type) {
     case M_AUDTASK:
-        return n_aspMain;
+        return aspMain;
 
     default:
         fprintf(stderr, "Unknown task: %" PRIu32 "\n", task->t.type);
@@ -367,13 +367,14 @@ gpr get_entrypoint_address();
 std::vector<recomp::GameEntry> supported_games = {
     {
         // User Task: Set the ROM hash for the supported game version.
-        .rom_hash = 0x0000000000000000ULL,
+        .rom_hash = 0xECB515AE2C898E4FULL,
         // User Task: Set all the names based on the rom's metadata and set a short mod id.
-        .internal_name = "My Game",
-        .display_name = "My Game",
-        .game_id = u8"mygame.ver",
-        .mod_game_id = "mygame",
+        .internal_name = "Mischief Makers",
+        .display_name = "Mischief Makers",
+        .game_id = u8"mischiefmakers.us",
+        .mod_game_id = "mischiefmakers",
         // User Task: Set .save_type to the save type used by the game.
+        .save_type = recomp::SaveType::Eep4k,
         // TODO icon
         // .thumbnail_bytes = std::span<const char>(icon_bytes),
         .is_enabled = false,
@@ -381,12 +382,12 @@ std::vector<recomp::GameEntry> supported_games = {
         .has_compressed_code = false,
         .entrypoint_address = get_entrypoint_address(),
         .entrypoint = recomp_entrypoint,
-        .on_init_callback = mygame::game_on_init,
+        .on_init_callback = mischiefmakers::game_on_init,
     },
 };
 
 // TODO: move somewhere else
-namespace mygame {
+namespace mischiefmakers {
     std::string get_game_thread_name(const OSThread* t) {
         std::string name = "[Game] ";
 
@@ -594,7 +595,7 @@ void on_launcher_init(recompui::LauncherMenu *menu) {
     game_options_menu->add_default_options();
 
     recompui::Element *menu_container = menu->get_menu_container();
-    mygame::launcher_animation_setup(menu);
+    mischiefmakers::launcher_animation_setup(menu);
 }
 
 #define REGISTER_FUNC(name) recomp::overlays::register_base_export(#name, name)
@@ -670,8 +671,8 @@ int main(int argc, char** argv) {
     NFD_Init();
 
     // Initialize program settings.
-    recompui::programconfig::set_program_name(mygame::program_name);
-    recompui::programconfig::set_program_id(mygame::program_id);
+    recompui::programconfig::set_program_name(mischiefmakers::program_name);
+    recompui::programconfig::set_program_id(mischiefmakers::program_id);
     
     // Initialize SDL audio and set the output frequency.
     SDL_InitSubSystem(SDL_INIT_AUDIO);
@@ -707,18 +708,18 @@ int main(int argc, char** argv) {
     recomputil::register_data_api_exports();
     recomptheme::set_custom_theme();
 
-    mygame::register_game_overlays();
-    mygame::register_game_patches();
+    mischiefmakers::register_game_overlays();
+    mischiefmakers::register_game_patches();
 
     // Register extensions for two types: Props and ActorMarkers.
     recomputil::init_extended_object_data(2);
 
     recompinput::players::set_single_player_mode(true);
 
-    mygame::init_config();
+    mischiefmakers::init_config();
 
     recompui::register_launcher_init_callback(on_launcher_init);
-    recompui::register_launcher_update_callback(mygame::launcher_animation_update);
+    recompui::register_launcher_update_callback(mischiefmakers::launcher_animation_update);
 
     recomp::rsp::callbacks_t rsp_callbacks{
         .get_rsp_microcode = get_rsp_microcode,
@@ -760,7 +761,7 @@ int main(int argc, char** argv) {
     };
 
     ultramodern::threads::callbacks_t threads_callbacks{
-        .get_game_thread_name = mygame::get_game_thread_name,
+        .get_game_thread_name = mischiefmakers::get_game_thread_name,
     };
 
     // Register the texture pack content type with rt64.json as its content file.

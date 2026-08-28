@@ -5,7 +5,7 @@ LD      ?= ld.lld
 
 # User Task: Set this to your game's decompilation repository.
 # The default expects it at lib/<decomp-directory> from the project root.
-DECOMP_DIR ?= ../lib/your-game-decomp
+DECOMP_DIR ?= ../lib/mischief-makers
 
 # User Task: Add, remove, or adjust decomp header directories if your
 # decompilation repository uses a different layout.

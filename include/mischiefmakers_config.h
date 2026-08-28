@@ -1,12 +1,12 @@
-#ifndef __MYGAME_CONFIG_H__
-#define __MYGAME_CONFIG_H__
+#ifndef __MISCHIEFMAKERS_CONFIG_H__
+#define __MISCHIEFMAKERS_CONFIG_H__
 
 #include <filesystem>
 #include <string>
 
-namespace mygame {
-    inline const std::u8string program_id = u8"MyGameRecompiled";
-    inline const std::string program_name = "My Game: Recompiled";
+namespace mischiefmakers {
+    inline const std::u8string program_id = u8"MischiefMakersRecompiled";
+    inline const std::string program_name = "Mischief Makers: Recompiled";
 
     namespace configkeys {
         namespace general {

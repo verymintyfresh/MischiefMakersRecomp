@@ -1,12 +1,12 @@
-#ifndef __MYGAME_GAME_H__
-#define __MYGAME_GAME_H__
+#ifndef __MISCHIEFMAKERS_GAME_H__
+#define __MISCHIEFMAKERS_GAME_H__
 
 #include <cstdint>
 #include <span>
 #include <vector>
 #include "recomp.h"
 
-namespace mygame {
+namespace mischiefmakers {
     void game_on_init(uint8_t* rdram, recomp_context* ctx);
 };
 

@@ -1,8 +1,8 @@
-#include "mygame_config.h"
+#include "mischiefmakers_config.h"
 #include "recompui/recompui.h"
 #include "recompui/config.h"
 #include "recompinput/recompinput.h"
-#include "mygame_support.h"
+#include "mischiefmakers_support.h"
 #include "ultramodern/config.hpp"
 #include "librecomp/files.hpp"
 #include "librecomp/config.hpp"
@@ -73,7 +73,7 @@ static void set_control_descriptions() {
     recompinput::set_game_input_description(recompinput::GameInput::DPAD_RIGHT, "Add description");
 }
 
-void mygame::init_config() {
+void mischiefmakers::init_config() {
     std::filesystem::path recomp_dir = recompui::file::get_app_folder_path();
 
     if (!recomp_dir.empty()) {

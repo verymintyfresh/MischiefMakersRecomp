@@ -1,6 +1,6 @@
-#include "mygame_game.h"
+#include "mischiefmakers_game.h"
 
-void mygame::game_on_init(uint8_t* rdram, recomp_context* ctx) {
+void mischiefmakers::game_on_init(uint8_t* rdram, recomp_context* ctx) {
     // User Task: Add rom decompression routine if it needs it. If the game doesn't need it, you can just leave this
     // function empty.
     (void)rdram;

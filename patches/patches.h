@@ -1,6 +1,8 @@
 #ifndef __PATCHES_H__
 #define __PATCHES_H__
 
+#define rmonMain rmonMain_recomp
+
 // Generic attributes understood by N64: Recompiled's patch recompiler.
 #define RECOMP_EXPORT __attribute__((section(".recomp_export")))
 #define RECOMP_PATCH __attribute__((section(".recomp_patch")))
